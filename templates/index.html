@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="mx-5 mt-3 mb-5">
+    <div class="home-title">
+        <h1 class="row justify-content-center">To-Do List</h1>
+        <p class="row justify-content-center pb-3">Keep track of your tasks!</p>
+    </div>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-center">
+            <button class="btn add-task-btn" type="button" data-bs-toggle="collapse" data-bs-target="#formCollapse"
+                aria-expanded="false" aria-controls="formCollapse">
+                + Add New Task
+            </button>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="collapse" id="formCollapse">
+            <div class="card card-body">
+                {{ render_form(form,
+                form_type="horizontal",
+                button_style="primary",
+                button_size="lg")
+                }}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <div class="row all-tasks-cols">
+        <div class="col-lg-4 text-center px-0">
+            <div class="d-flex align-items-center justify-content-center red-tasks-title">
+                <h2>Top priorities</h2>
+            </div>
+            <div class="red-tasks-col">
+                {% for task in red_tasks %}
+                <div class="red-task-card">
+                    <div>
+                        <h3>{{ task.title }}</h3>
+                        {% if task.description %}
+                        <p class="task-description">{{ task.description }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-options-btns">
+                        <a href="{{ url_for('delete', id=task.id) }}" class="btn btn-outline-success btn-sm">
+                            <i class="bi bi-check"></i>
+                        </a>
+                        <a href="{{ url_for('edit', id=task.id) }}" class="btn btn-outline-dark btn-sm">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="{{ url_for('delete', id=task.id) }}" class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="col-lg-4 text-center px-0">
+            <div class="d-flex align-items-center justify-content-center yellow-tasks-title">
+                <h2>Stay alert</h2>
+            </div>
+            <div class="yellow-tasks-col">
+                {% for task in yellow_tasks %}
+                <div class="yellow-task-card">
+                    <div>
+                        <h3>{{ task.title }}</h3>
+                        {% if task.description %}
+                        <p class="task-description">{{ task.description }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-options-btns">
+                        <a href="{{ url_for('delete', id=task.id) }}" class="btn btn-outline-success btn-sm">
+                            <i class="bi bi-check"></i>
+                        </a>
+                        <a href="{{ url_for('edit', id=task.id) }}" class="btn btn-outline-dark btn-sm">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="{{ url_for('delete', id=task.id) }}" class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="col-lg-4 text-center px-0">
+            <div class="d-flex align-items-center justify-content-center green-tasks-title">
+                <h2>Don't forget</h2>
+            </div>
+            <div class="green-tasks-col">
+                {% for task in green_tasks %}
+                <div class="green-task-card">
+                    <div>
+                        <h3>{{ task.title }}</h3>
+                        {% if task.description %}
+                        <p class="task-description">{{ task.description }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-options-btns">
+                        <a href="{{ url_for('delete', id=task.id) }}" class="btn btn-outline-success btn-sm">
+                            <i class="bi bi-check"></i>
+                        </a>
+                        <a href="{{ url_for('edit', id=task.id) }}" class="btn btn-outline-dark btn-sm">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="{{ url_for('delete', id=task.id) }}" class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,118 @@
+body {
+    background-color: #c3fdfa;
+    color: #124a6b;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.home-title {
+    border-bottom: 2px solid rgb(18, 74, 107, 0.5);
+}
+
+.add-task-btn {
+    outline: 5px solid #124a6b !important;;
+    color: #124a6b;
+    font-weight: bold;
+    outline-offset: 2px;
+    align-items: c;
+    height: 4rem;
+    width: 80%;
+    margin-top: 2rem;
+    margin-bottom: 7px;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.add-task-btn:hover {
+    background-color: rgb(18, 74, 107, 0.4);
+}
+
+.all-tasks-cols {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.red-tasks-title, .yellow-tasks-title, .green-tasks-title {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 5rem;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.red-tasks-title {
+    background-color: #FF6D60;
+    color: #7c1f16;
+}
+
+.yellow-tasks-title {
+    background-color: #F7D060;
+    color: #ad662b;
+    /* background-color: #F3E99F; */
+}
+
+.green-tasks-title {
+    background-color: #98D8AA;
+    color: #2c7240;
+}
+
+.red-tasks-col, .yellow-tasks-col, .green-tasks-col{
+    border-radius: 10px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 2rem;
+}
+
+.red-tasks-col {
+    background-color: #FF6D60;
+}
+
+.yellow-tasks-col {
+    background-color: #F7D060;
+    /* background-color: #F3E99F; */
+}
+.green-tasks-col {
+    background-color: #98D8AA;
+}
+
+.red-task-card, .yellow-task-card, .green-task-card {
+    border-radius: 10px;
+    width: 70%;
+    min-height: 7rem; 
+    height: auto;
+    margin-top: 2rem;
+    display: block;
+    padding: 2rem;
+
+    box-shadow: 0 0.4rem 0 rgb(18, 74, 107, 0.3);
+}
+
+.red-task-card {
+    background-color: #ff9b92;
+}
+
+.yellow-task-card {
+    background-color: #F3E99F;
+}
+
+.green-task-card {
+    background-color: #bff1cd;
+}
+
+.task-description {
+    word-wrap: break-word;
+    height: auto;
+}
+
+.card-options-btns {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.red-task-card:hover .card-options-btns,
+.yellow-task-card:hover .card-options-btns,
+.green-task-card:hover .card-options-btns {
+    opacity: 1;
+}
