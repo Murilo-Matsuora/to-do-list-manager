@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String
+import random
 
 class Base(DeclarativeBase):
     pass
@@ -27,6 +28,7 @@ class Task(db.Model):
 with app.app_context():
     db.create_all()
 
+
 class TaskForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     description = TextAreaField('Description (Optional)')
@@ -36,6 +38,7 @@ class TaskForm(FlaskForm):
         ('green', 'Low')
     ])
     submit = SubmitField('Save Task')
+
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
@@ -54,9 +57,12 @@ def home():
     red_tasks = Task.query.filter_by(urgency='red').all()
     yellow_tasks = Task.query.filter_by(urgency='yellow').all()
     green_tasks = Task.query.filter_by(urgency='green').all()
-    
+
+    with open('./static/data/motivational_quotes.txt', mode='r', encoding='utf-8') as f:
+        motivational_quotes = f.read().splitlines()
+        
     return render_template("index.html", form=form, red_tasks=red_tasks, 
-                           yellow_tasks=yellow_tasks, green_tasks=green_tasks)
+                           yellow_tasks=yellow_tasks, green_tasks=green_tasks, motivational_quote=random.choice(motivational_quotes))
 
 @app.route("/delete/<id>", methods=['GET'])
 def delete(id):

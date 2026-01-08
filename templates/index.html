@@ -8,6 +8,9 @@
     <div class="home-title">
         <h1 class="row justify-content-center">To-Do List</h1>
         <p class="row justify-content-center pb-3">Keep track of your tasks!</p>
+        <i class="bi bi-chat-fill motivational-fairy-speech-icon"></i>
+        <img src="{{ url_for('static', filename='images/motivational_fairy.png') }}" alt="motivational fairy" class="motivational-fairy-img">
+        <p class="motivational-fairy-speech-text">{{ motivational_quote }}</p>
     </div>
 
     <div class="container mt-4">

@@ -8,12 +8,49 @@ body {
     border-bottom: 2px solid rgb(18, 74, 107, 0.5);
 }
 
+.motivational-fairy-img {
+    height: 150px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    z-index: 2;
+}
+
+.motivational-fairy-speech-icon {
+    height: 150px;
+    position: absolute;
+    top: 20px;
+    right: 190px;
+    z-index: 2;
+    transform: scaleX(-1.5) scaleY(-1);
+    font-size: 7.5rem;
+    color: #c3fdfa;
+    text-shadow: 
+        -2px -2px 0 #124a6b,  
+         2px -2px 0 #124a6b,
+        -2px  2px 0 #124a6b,
+         2px  2px 0 #124a6b;
+}
+
+.motivational-fairy-speech-text {
+    position: absolute;
+    top: 50px;
+    right: 180px;
+    z-index: 2;
+    color: #124a6b;
+    width: 140px;
+    text-align: center;
+    line-height: 1.1;
+    align-items: center;
+    font-size: small;
+}
+
 .add-task-btn {
     outline: 5px solid #124a6b !important;;
     color: #124a6b;
     font-weight: bold;
     outline-offset: 2px;
-    align-items: c;
+    align-items: center;
     height: 4rem;
     width: 80%;
     margin-top: 2rem;
